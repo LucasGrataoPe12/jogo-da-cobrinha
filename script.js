@@ -49,5 +49,24 @@ function iniciarJogo() {
     if (snake[0].x < 0 * box && direction == "up") {
         snake[0].x = 16 * box
     }
-
+    criarGB();
+    criarCobrinha();
+    drawFood();
+let snakeX = snake[0].x;
+let snakeY = snake[0].y;
+if(direction == "right") snakeX += box;
+if(direction == "left") snakeX == box;
+if(direction == "up") snakeY == box;
+if(direction == "down") snakeY == box;
+if(snakeX != food.x || snakeY != food.y) {
+    snake.pop(); 
+} else {
+    food.x = Match.floor(Math.random() * 15 +1) * box;
+    food.y = Match.floor(Math.random() * 15 +1) * box;
+}
+let newHead ={
+    x: snakeX,
+    y: snakeY
+}
+snake.unshift(newHead);
 }
