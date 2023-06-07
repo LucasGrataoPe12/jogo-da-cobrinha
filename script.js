@@ -3,10 +3,10 @@ let canvas = document.getElementById("gamesnake");
 let context = canvas.getContext("2d");
 let box = 32;
 
-// kobrinha
+// cobrinha
 let snake = [];
 
-// início kobrinha
+// início cobrinha
 snake[0] ={
     x: 8 * box,
     y: 8 * box
@@ -28,7 +28,7 @@ function criarBG() {
     context.fillRect(0, 0, 16 * box, 16 * box);
 }
 
-// cria kobrinha
+// cria cobrinha
 function criaCobrinha (){
     for(i = 0; i < snake.length; i++) {
         context.fillStyle = "green"
