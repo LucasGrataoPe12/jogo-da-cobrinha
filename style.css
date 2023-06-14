@@ -3,9 +3,24 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-image: url(./img/fundo.jpg);
 }
 
 #gamesnake{
     width: 512px;
     height: 512px;
+}
+
+.fix{
+    position: fixed;
+}
+
+.arvore{
+    left: 0;
+    bottom: 0;
+    width: 530px;
+}
+
+.seviper{
+    right: 0;
 }
