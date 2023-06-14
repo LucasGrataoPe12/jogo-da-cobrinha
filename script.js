@@ -7,7 +7,7 @@ let box = 32;
 let snake = [];
 
 // início cobrinha
-snake[0] ={
+snake[0] = {
     x: 8 * box,
     y: 8 * box
 }
@@ -16,7 +16,7 @@ snake[0] ={
 let direction = "right"
 
 // comida
-let food ={
+let food = {
     x: Math.floor(Math.random() * 15 + 1) * box,
     y: Math.floor(Math.random() * 15 + 1) * box
 }
@@ -24,13 +24,13 @@ let food ={
 // fundo
 function criarBG() {
     context.fillStyle = "lightgreen"
-// desenha retângulo usnado x e y
+    // desenha retângulo usnado x e y
     context.fillRect(0, 0, 16 * box, 16 * box);
 }
 
 // cria cobrinha
-function criaCobrinha (){
-    for(i = 0; i < snake.length; i++) {
+function criaCobrinha() {
+    for (i = 0; i < snake.length; i++) {
         context.fillStyle = "green"
         context.fillRect(snake[i].x, snake[i].y, box, box)
     }
@@ -54,13 +54,13 @@ function update(event) {
 
 // função peincipal
 function iniciarJogo() {
-    if (snake[0].x > 15*box && direction == "right") {
+    if (snake[0].x > 15 * box && direction == "right") {
         snake[0].x = 0;
     }
     if (snake[0].x < 0 && direction == "left") {
         snake[0].x = 16 * box;
     }
-    if (snake[0].y > 15*box && direction == "down") {
+    if (snake[0].y > 15 * box && direction == "down") {
         snake[0].y = 0;
     }
     if (snake[0].y < 0 && direction == "up") {
@@ -68,9 +68,9 @@ function iniciarJogo() {
     }
 
     for (i = 1; i < snake.length; i++) {
-        if (snake[0].x == snake[i].x && snake[0].y == snake[i].y){
+        if (snake[0].x == snake[i].x && snake[0].y == snake[i].y) {
             clearInterval(jogo);
-            alert('Game Over >:(');
+            alert('Game Over :(');
         }
     }
 
@@ -81,25 +81,52 @@ function iniciarJogo() {
     let snakeX = snake[0].x;
     let snakeY = snake[0].y;
 
-    if (direction == "right") snakeX += box; 
-    if (direction == "left") snakeX -= box; 
-    if (direction == "up") snakeY -= box; 
+    if (direction == "right") snakeX += box;
+    if (direction == "left") snakeX -= box;
+    if (direction == "up") snakeY -= box;
     if (direction == "down") snakeY += box;
-    
+
     if (snakeX != food.x || snakeY != food.y) {
         // pop tira o último elemento da lista
-        snake.pop(); 
+        snake.pop();
     } else {
-        food.x = Math.floor(Math.random() * 15 +1) * box;
-        food.y = Math.floor(Math.random() * 15 +1) * box;
+        food.x = Math.floor(Math.random() * 15 + 1) * box;
+        food.y = Math.floor(Math.random() * 15 + 1) * box;
     }
 
-    let newHead ={
+    let newHead = {
         x: snakeX,
         y: snakeY
     }
-// método unshift adiciona como primeiro quadrinho da cobrinha
-    snake.unshift(newHead)
+
+    // método unshift adiciona como primeiro quadrinho da cobrinha
+    snake.unshift(newHead);
+
+    if (pontos != snake.length - 1) {
+        pontos++;
+        document.getElementById('pontuacao').innerText = pontos;
+    }
+
+    if (pontos == pontosProximaFase) {
+        fase++;
+        pontosProximaFase = pontosProximaFase + pontosPorFase;
+
+        time = time - (pontosPorFase * 10);
+        clearInterval(jogo);
+        jogo = setInterval(iniciarJogo, time);
+
+        document.getElementById('fase').innerText = fase;
+        document.getElementById('velocidade').innerText = time;
+    }
 }
 
-let jogo = setInterval(iniciarJogo, 250)
+let time = 200;
+document.getElementById('velocidade').innerText = time;
+
+let jogo = setInterval(iniciarJogo, time);
+
+let pontos = 0;
+let pontosPorFase = 2;
+let pontosProximaFase = pontosPorFase;
+let fase = 1;
+document.getElementById('fase').innerText = fase;
