@@ -119,7 +119,11 @@ function iniciarJogo() {
         document.getElementById('velocidade').innerText = time;
     }
 }
-
+function restart(){
+    if(confirm('Deseja mesmo reiniciar? (você perderá seus pontos)')){
+        location.reload()
+    }
+}
 let time = 200;
 document.getElementById('velocidade').innerText = time;
 

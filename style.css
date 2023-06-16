@@ -27,7 +27,7 @@ body{
     width: 300px;
     top: 0;
 }
-.left {
+/*.left {
     margin: left;
     width: 100%;
     font-size: 30px;
@@ -36,4 +36,9 @@ body{
     margin: right;
     width: 100%;
     font-size: 30px;
+}
+*/
+
+.right {
+    text-align: right;
 }
