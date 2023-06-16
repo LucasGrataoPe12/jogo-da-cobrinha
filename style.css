@@ -4,7 +4,7 @@ body{
     justify-content: center;
     align-items: center;
     background-image: url(./img/fundo.jpg);
-    color: white;
+    color: rgb(251, 255, 0);
 }
 
 #gamesnake{
