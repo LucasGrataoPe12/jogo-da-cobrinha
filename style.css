@@ -27,18 +27,3 @@ body{
     width: 300px;
     top: 0;
 }
-/*.left {
-    margin: left;
-    width: 100%;
-    font-size: 30px;
-}
-.right {
-    margin: right;
-    width: 100%;
-    font-size: 30px;
-}
-*/
-
-.right {
-    text-align: right;
-}

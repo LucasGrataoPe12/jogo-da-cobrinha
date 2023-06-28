@@ -13,15 +13,13 @@
     <img src="./img/arvore.png" class="fix arvore">
     <img src="./img/seviper.png" class="fix seviper">
 
-    <canvas id="gamesnake"  height="512" width="512"></canvas>
+    <div id="borda">
+        <canvas id="gamesnake" width="512" height="512" onclick="song()"></canvas>
+    </div>
+        <br>
+        <span id="pnts"></span>
+        <br>
+        <input type="submit" value="reiniciar" onclick="restart()">
+    </body>
     
-    <div class="left">
-        <p>Pontuação: <span id="pontuacao">0</span></p>
-    </div>
-
-    <div class="right">
-        <p>Fase: <span id="fase"></span> - Velocidade: <span id="velocidade"></span></p>
-    </div>
-    <input type="submit" value="reiniciar" onclick="restart()">
-</body>
     </html>
